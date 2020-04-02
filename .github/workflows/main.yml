@@ -26,5 +26,11 @@ jobs:
       with:
         channel: 'stable' # or: 'dev' or 'beta'
     - run: flutter pub get
-    - run: flutter build ios
+    - run: flutter build apk
+
+    # - uses: ncipollo/release-action@v1
+    #   with:
+    #     artifacts: "release.tar.gz,foo/*.txt"
+    #     bodyFile: "body.md"
+    #     token: ${{ secrets.GITHUB_TOKEN }}
 

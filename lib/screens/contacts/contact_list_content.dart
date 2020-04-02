@@ -28,29 +28,6 @@ class _ContactListContentState extends State<ContactListContent> {
                   onTap: () {
                     setState(() {
                       selectedIndex = selectedIndex == index ? -1 : index;
-                      // if (selectedIndex == index) {
-                      //   setState(() {
-                      //     selectedIndex = -1;
-                      //   });
-                      // } else {
-                      //   setState(() {
-                      //     selectedIndex = index;
-                      //   });
-                      //   // if (selectedIndex > -1) {
-                      //   //   setState(() {
-                      //   //     selectedIndex = -1;
-                      //   //   });
-                      //   //   Future.delayed(Duration(milliseconds: 100), () {
-                      //   //     setState(() {
-                      //   //       selectedIndex = index;
-                      //   //     });
-                      //   //   });
-                      //   // } else {
-                      //   //   setState(() {
-                      //   //     selectedIndex = index;
-                      //   //   });
-                      //   // }
-                      // }
                     });
                   },
                 );
