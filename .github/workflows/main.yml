@@ -28,9 +28,9 @@ jobs:
     - run: flutter pub get
     - run: flutter build apk
 
-    # - uses: ncipollo/release-action@v1
-    #   with:
-    #     artifacts: "release.tar.gz,foo/*.txt"
-    #     bodyFile: "body.md"
-    #     token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "release.tar.gz,foo/*.txt"
+        bodyFile: "build/app/outputs/apk/release/app-release.apk"
+        token: ${{ secrets.GITHUB_TOKEN }}
 

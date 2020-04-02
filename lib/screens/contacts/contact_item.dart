@@ -44,14 +44,12 @@ class _ContactItemState extends State<ContactItem> {
       leading: CircleAvatar(
           radius: 25.0,
           child: ClipOval(
-              child: Image(
-                  image: CachedNetworkImageProvider(widget.contact.avatar))
-              // CachedNetworkImage(
-              //   imageUrl: widget.contact.avatar,
-              //   placeholder: (context, url) => CircularProgressIndicator(),
-              //   errorWidget: (context, url, error) => Icon(Icons.error),
-              // ),
-              )),
+            child: CachedNetworkImage(
+              imageUrl: widget.contact.avatar,
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
+          )),
     );
   }
 
