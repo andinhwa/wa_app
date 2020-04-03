@@ -23,27 +23,16 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        channel: 'stable' # or: 'dev' or 'beta'
+        channel: 'dev' # stable or: 'dev' or 'beta'
     - run: flutter pub get
-    - run: flutter build apk
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- run: flutter build apk
+    - run: flutter build ios --debug --no-codesign
+      
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-    - name: Upload Release Asset
-      id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: build/app/outputs/apk/release/app-release.apk
-        asset_name: app-release.apk
-        asset_content_type: application/vnd.android.package-archive
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: build/ios/iphoneos/Runner.app
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
