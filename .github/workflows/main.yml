@@ -26,7 +26,7 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        channel: 'stable' # or: 'dev' or 'beta'
+        channel: 'dev' # stable or: 'dev' or 'beta'
     - run: flutter pub get
     #- run: flutter build apk
     - run: flutter build ios --debug --no-codesign
@@ -50,7 +50,7 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         #asset_path: build/app/outputs/apk/release/app-release.apk
         #asset_name: app-release.apk
-        asset_path: build/ios/iphoneos/Runner.app
+        asset_path: ./build/ios/iphoneos/Runner.app
         asset_name: Runner.app
         #asset_content_type: application/vnd.ios.package-archive
         asset_content_type: application/octet-stream
