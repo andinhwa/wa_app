@@ -32,4 +32,4 @@ jobs:
       with:
         #artifacts: "build/ios/iphoneos/*.app"
         artifacts: "build/app/outputs/apk/release/*apk"
-        token: ${{ secrets.TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN  }}
