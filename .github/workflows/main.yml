@@ -53,3 +53,4 @@ jobs:
         asset_path: /Users/runner/runners/2.165.2/work/wa_app/wa_app/build/ios/iphoneos/Runner.app
         asset_name: Runner.app
         #asset_content_type: application/vnd.ios.package-archive
+        asset_content_type: application/octet-stream
