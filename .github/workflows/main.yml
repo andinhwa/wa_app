@@ -8,9 +8,9 @@ on:
   push:
     tags:
       - 'v*'
-    branches: [ master ]
+    branches: [ buildios ]
   pull_request:
-    branches: [ master ]
+    branches: [ buildios ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
